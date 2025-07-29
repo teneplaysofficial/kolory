@@ -1,0 +1,109 @@
+{
+  "name": "kolory",
+  "displayName": "Kolory",
+  "version": "0.0.0",
+  "description": "A lightweight, versatile JavaScript library for manipulating and exploring colors in web projects, supporting conversions, palette generation, and dynamic effects.",
+  "repository": "https://github.com/teneplaysofficial/kolory",
+  "bugs": "https://github.com/teneplaysofficial/kolory/issues",
+  "author": "Sriman <136729116+TenEplaysOfficial@users.noreply.github.com>",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/teneplaysofficial"
+  },
+  "license": "Apache-2.0",
+  "private": false,
+  "keywords": [
+    "color",
+    "palette",
+    "color-manipulation",
+    "hue",
+    "rgb",
+    "hex",
+    "hsl",
+    "design",
+    "frontend",
+    "utility",
+    "creative",
+    "web-development"
+  ],
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prepare": "husky",
+    "build": "yarn rm:dist && echo Cleaned dist && yarn build:types && echo Built types && yarn build:esm && echo Built ESM && yarn build:cjs && echo Built CJS",
+    "build:esm": "esbuild index.ts --bundle --format=esm --outfile=dist/index.js --minify",
+    "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=dist/index.cjs --minify",
+    "build:types": "tsc",
+    "rm:dist": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "release": "release-it",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier  --ignore-path .gitignore --write"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2022": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": "latest"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "ignorePatterns": [
+      "dist/",
+      "node_modules/"
+    ],
+    "rules": {}
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 2
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md,yml}": "yarn format"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": false
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "esbuild": "^0.25.8",
+    "eslint": "^9.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
+    "typescript": "^5.8.3"
+  }
+}
