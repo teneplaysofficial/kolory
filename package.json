@@ -16,6 +16,8 @@
     "color",
     "palette",
     "color-manipulation",
+    "color-utils",
+    "color-conversion",
     "hue",
     "rgb",
     "hex",
@@ -24,7 +26,10 @@
     "frontend",
     "utility",
     "creative",
-    "web-development"
+    "web-development",
+    "ui-colors",
+    "javascript",
+    "typescript"
   ],
   "files": [
     "dist"
@@ -32,18 +37,21 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
+  "browser": "./dist/index.iife.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     }
   },
   "scripts": {
     "prepare": "husky",
-    "build": "yarn rm:dist && echo Cleaned dist && yarn build:types && echo Built types && yarn build:esm && echo Built ESM && yarn build:cjs && echo Built CJS",
+    "build": "yarn rm:dist && echo Cleaned dist && yarn build:types && echo Built types && yarn build:esm && echo Built ESM && yarn build:cjs && echo Built CJS && yarn build:iife && echo Built IIFE",
     "build:esm": "esbuild index.ts --bundle --format=esm --outfile=dist/index.js --minify",
     "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=dist/index.cjs --minify",
+    "build:iife": "esbuild index.ts --bundle --format=iife --global-name=kolory --outfile=dist/index.iife.js --minify",
     "build:types": "tsc",
     "rm:dist": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "release": "release-it",
