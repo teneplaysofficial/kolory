@@ -4,31 +4,38 @@
 
 _Paint your projects with vibrant Kolory_
 
-[![npm](https://img.shields.io/npm/v/kolory.svg?style=flat-square)](https://www.npmjs.com/package/kolory)
-[![npm downloads](https://img.shields.io/npm/dw/kolory?style=flat-square)](https://www.npmjs.com/package/kolory)
-[![release](https://img.shields.io/github/actions/workflow/status/teneplaysofficial/kolory/release.yml?style=flat-square)](https://github.com/teneplaysofficial/kolory/actions/workflows/release.yml)
-[![bundlephobia](https://img.shields.io/bundlephobia/minzip/kolory?style=flat-square)](https://github.com/teneplaysofficial/kolory)
-[![license](https://img.shields.io/npm/l/kolory?style=flat-square)](./LICENSE)
-[![types](https://img.shields.io/npm/types/kolory?style=flat-square)](https://github.com/teneplaysofficial/kolory)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/teneplaysofficial/kolory)
-[![eslint](https://img.shields.io/badge/lint-eslint-4B32C3?style=flat-square)](https://github.com/teneplaysofficial/kolory)
+[![build](https://github.com/teneplaysofficial/kolory/actions/workflows/release.yml/badge.svg)](https://github.com/teneplaysofficial/kolory/actions/workflows/release.yml)
+[![npm](https://img.shields.io/npm/v/kolory.svg)](https://www.npmjs.com/package/kolory)
+[![npm downloads](https://img.shields.io/npm/dw/kolory)](https://www.npmjs.com/package/kolory)
+[![bundlephobia](https://img.shields.io/bundlephobia/minzip/kolory)](https://github.com/teneplaysofficial/kolory)
+[![license](https://img.shields.io/npm/l/kolory)](./LICENSE)
+[![types](https://img.shields.io/npm/types/kolory)](https://github.com/teneplaysofficial/kolory)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/teneplaysofficial/kolory)
+[![eslint](https://img.shields.io/badge/lint-eslint-4B32C3)](https://github.com/teneplaysofficial/kolory)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/kolory/badge?style=square)](https://github.com/teneplaysofficial/kolory)
 
 </div>
 
-**Kolory** is a lightweight and versatile JavaScript library for exploring and manipulating color data in various formats. Whether you're converting between HEX, RGB, HSL, or generating dynamic palettes, Kolory offers a simple and intuitive API to work with color like a pro.
+## Overview
+
+**Kolory** is a lightweight, versatile, and zero-dependency JavaScript library designed for seamless color manipulation and exploration. It supports multiple color formats (`HEX`, `RGB`, `RGBA`, `HSL`, `HSLA`) and provides built-in ANSI escape code support for styling terminal output. With a simple and intuitive API, Kolory empowers developers to work with colors effortlessly in both Node.js and browser environments.
+
+Whether you're converting colors, generating dynamic palettes, or enhancing CLI output with vibrant formatting, Kolory is your go-to tool for all things color.
 
 ## Features
 
-- Multiple color formats: `hex`, `rgb`, `rgba`, `hsl`, `hsla`
-- Ships with prebuilt distributions: ESM, CommonJS, IIFE
-- Zero dependencies and tiny footprint
-- First-class TypeScript support
-- Works in both Node.js and the browser
+- **Multiple Color Formats**: Work with `HEX`, `RGB`, `RGBA`, `HSL`, and `HSLA` formats effortlessly.
+- **Prebuilt Distributions**: Available in ESM, CommonJS, and IIFE formats for maximum compatibility.
+- **Zero Dependencies**: Lightweight with a minimal footprint for optimal performance.
+- **TypeScript Support**: First-class TypeScript definitions for a type-safe development experience.
+- **Cross-Platform**: Compatible with Node.js, Deno, and modern browsers.
+- **ANSI Styling**: Built-in support for 4-bit, 8-bit, and 24-bit ANSI escape codes to style CLI output.
 
 ## Installation
 
-Kolory is available via all major package managers:
+Kolory can be installed via all major package managers or used directly in the browser via a CDN.
+
+### Using Package Managers
 
 ```bash
 # npm
@@ -44,7 +51,9 @@ pnpm add kolory
 bun add kolory
 ```
 
-Or use directly in the browser via CDN:
+### Using CDN (Browser)
+
+Include Kolory in your HTML for browser-based projects:
 
 ```html
 <!-- UNPKG -->
@@ -53,7 +62,7 @@ Or use directly in the browser via CDN:
 <!-- jsDelivr -->
 <script src="https://cdn.jsdelivr.net/npm/kolory/dist/index.iife.js"></script>
 
-<!-- ESM (for modern browsers) -->
+<!-- ESM (Modern Browsers) -->
 <script type="module">
   import kolory from 'https://esm.sh/kolory';
 </script>
@@ -61,9 +70,11 @@ Or use directly in the browser via CDN:
 
 ## Usage
 
-### ESM
+Kolory provides a straightforward API to access and manipulate colors in various formats. Below are examples for different environments.
 
-```ts
+### ESM (Modern JavaScript)
+
+```js
 import kolory, { hex, rgb, rgba, hsl, hsla } from 'kolory';
 
 console.log(kolory.hex.blue_metal);
@@ -73,13 +84,14 @@ console.log(rgb.blue_metal);
 
 ### CommonJS
 
-```ts
+```js
 const { hex, rgb } = require('kolory');
 
 console.log(hex.sunset_orange);
+console.log(rgb.sunset_orange);
 ```
 
-### CDN (IIFE)
+### Browser (IIFE via CDN)
 
 ```html
 <script src="https://unpkg.com/kolory/dist/index.iife.js"></script>
@@ -88,7 +100,9 @@ console.log(hex.sunset_orange);
 </script>
 ```
 
-## Example Color Entry
+## Color Data Structure
+
+Kolory organizes colors in a structured JSON format, with each color entry providing values for all supported formats. Below is an example:
 
 ```json
 {
@@ -104,27 +118,83 @@ console.log(hex.sunset_orange);
 
 ## API Reference
 
-| Export   | Description                        |
-| -------- | ---------------------------------- |
-| `kolory` | All formats in a structured object |
-| `hex`    | Colors in HEX format               |
-| `rgb`    | Colors in RGB format               |
-| `rgba`   | Colors in RGBA format              |
-| `hsl`    | Colors in HSL format               |
-| `hsla`   | Colors in HSLA format              |
+Kolory exports several modules to access colors in different formats:
+
+| Export   | Description                                    |
+| -------- | ---------------------------------------------- |
+| `kolory` | Structured object containing all color formats |
+| `hex`    | Colors in HEX format (e.g., `#4A90E2`)         |
+| `rgb`    | Colors in RGB format (e.g., `74,144,226`)      |
+| `rgba`   | Colors in RGBA format (e.g., `74,144,226,1`)   |
+| `hsl`    | Colors in HSL format (e.g., `210,73%,58%`)     |
+| `hsla`   | Colors in HSLA format (e.g., `210,73%,58%,1`)  |
+| `ansi`   | ANSI escape codes for CLI styling              |
+
+## ANSI Escape Codes
+
+Kolory includes robust support for ANSI escape codes, enabling vibrant and expressive CLI output. It supports 4-bit, 8-bit, and 24-bit color modes, with a chainable syntax for easy styling.
+
+### ANSI Features
+
+- **Chainable Syntax**: Combine styles fluently (e.g., `ansi.red.bold.underline('Hello')`).
+- **Fully Typed**: TypeScript support for all ANSI styles.
+- **Comprehensive SGR Codes**: Includes all Select Graphic Rendition (SGR) codes.
+- **Cross-Platform**: Works in Node.js, Deno, and ANSI-compatible browser terminals.
+- **Auto-Reset**: Automatically appends `\x1b[0m` to reset styles after each print.
+- **Raw Output**: Use `.apply(text)` to retrieve styled strings without printing.
+
+### ANSI Usage
+
+```js
+import { ansi } from 'kolory';
+
+// Basic styling
+ansi.bold('Bold text'); // Bold text
+ansi.italic.underline('Stylish!'); // Italicized and underlined text
+ansi.red.bgWhite.bold('Alert!'); // Red text on white background, bold
+console.log(ansi.green.apply('Green text')); // Returns raw styled string
+```
+
+### Supported ANSI Styles
+
+| Category        | Styles                                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Text Styles** | `bold`, `dim`, `italic`, `underline`, `blink`, `inverse`, `hidden`                                                             |
+| **Foreground**  | `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`                                                          |
+| **Bright FG**   | `gray`, `brightRed`, `brightGreen`, `brightYellow`, `brightBlue`, `brightMagenta`, `brightCyan`, `brightWhite`                 |
+| **Background**  | `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`                                          |
+| **Bright BG**   | `bgGray`, `bgBrightRed`, `bgBrightGreen`, `bgBrightYellow`, `bgBrightBlue`, `bgBrightMagenta`, `bgBrightCyan`, `bgBrightWhite` |
+| **Reset**       | `.reset` (or automatic after every print)                                                                                      |
+
+### ANSI Examples
+
+```js
+ansi.inverse('Inverted'); // Inverted text
+ansi.brightCyan('Bright Cyan Text'); // Bright cyan text
+ansi.bgBrightMagenta.white.bold('Highlight this!'); // White bold text on bright magenta background
+```
+
+### How ANSI Works
+
+Kolory’s ANSI support uses dynamic proxy chaining to build escape sequences. Each chained property appends an ANSI code, and the final invocation wraps the text with the appropriate codes:
+
+```js
+ansi.red.bold('Hello'); // Outputs: \u001b[31m\u001b[1mHello\u001b[0m
+```
+
+> [!NOTE]
+> Use `.apply(text)` to retrieve the raw styled string for further processing without printing to the console.
 
 ## Contributing
 
-Want to add a new color or improve Kolory?
+We welcome contributions to make Kolory even better! To contribute:
 
-- Add your color entry in [kolory.json](./kolory.json).
-- Follow the structure defined in [kolory.schema.json](./kolory.schema.json).
-- Each color should provide all supported formats: hex, rgb, rgba, hsl, hsla.
-- Ensure the format and naming consistency across all entries.
-- Run the formatter/linter before submitting a PR.
-
-We welcome your contributions!
+1. **Add Colors**: Add new color entries to [kolory.json](./kolory.json), following the structure defined in [kolory.schema.json](./kolory.schema.json).
+2. **Supported Formats**: Ensure each color includes `hex`, `rgb`, `rgba`, `hsl`, and `hsla` values.
+3. **Consistency**: Maintain consistent naming and formatting across all entries.
+4. **Code Quality**: Run the formatter (`prettier`) and linter (`eslint`) before submitting a pull request.
+5. **Submit a PR**: Open a pull request with a clear description of your changes.
 
 ## License
 
-Kolory is released under the [Apache License 2.0](./LICENSE).
+Kolory is licensed under the [Apache License 2.0](./LICENSE).

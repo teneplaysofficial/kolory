@@ -1,4 +1,4 @@
-name: Release Package
+name: Build
 description: This workflow publishes the package to NPM when a new version tag is pushed.
 
 on:
