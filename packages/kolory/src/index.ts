@@ -1,5 +1,5 @@
-import rawColors from './kolory.json';
-import rawAnsi from './ansi.json';
+import rawColors from '../data/kolory.json';
+import rawAnsi from '../data/ansi.json';
 
 const colors = rawColors;
 const ansis = rawAnsi;

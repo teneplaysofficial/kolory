@@ -4,10 +4,10 @@
 
 _Paint your projects with vibrant Kolory_
 
-[![build](https://github.com/teneplaysofficial/kolory/actions/workflows/release.yml/badge.svg)](https://github.com/teneplaysofficial/kolory/actions/workflows/release.yml)
-[![license](https://img.shields.io/npm/l/kolory)](./LICENSE)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/teneplaysofficial/kolory)
-[![eslint](https://img.shields.io/badge/lint-eslint-4B32C3)](https://github.com/teneplaysofficial/kolory)
+[![npm](https://img.shields.io/npm/v/kolory.svg)](https://www.npmjs.com/package/kolory)
+[![npm downloads](https://img.shields.io/npm/dw/kolory)](https://www.npmjs.com/package/kolory)
+[![bundlephobia](https://img.shields.io/bundlephobia/minzip/kolory)](https://github.com/teneplaysofficial/kolory)
+[![jsDelivr](https://data.jsdelivr.com/v1/package/npm/kolory/badge?style=square)](https://github.com/teneplaysofficial/kolory)
 
 </div>
 

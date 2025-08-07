@@ -1,0 +1,62 @@
+{
+  "name": "kolory",
+  "displayName": "Kolory",
+  "version": "1.1.0",
+  "description": "A lightweight, versatile JavaScript library for manipulating and exploring colors in web projects, supporting conversions, palette generation, and dynamic effects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teneplaysofficial/kolory.git",
+    "directory": "packages/kolory"
+  },
+  "bugs": "https://github.com/teneplaysofficial/kolory/issues",
+  "author": "Sriman <136729116+TenEplaysOfficial@users.noreply.github.com>",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/teneplaysofficial"
+  },
+  "license": "Apache-2.0",
+  "private": false,
+  "keywords": [
+    "color",
+    "palette",
+    "color-manipulation",
+    "color-utils",
+    "color-conversion",
+    "hue",
+    "rgb",
+    "hex",
+    "hsl",
+    "design",
+    "frontend",
+    "utility",
+    "creative",
+    "web-development",
+    "ui-colors",
+    "javascript",
+    "typescript"
+  ],
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "browser": "./dist/index.iife.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "pnpm run build:types && echo Built types && pnpm run build:esm && echo Built ESM && pnpm run build:cjs && echo Built CJS && pnpm run build:iife && echo Built IIFE",
+    "build:esm": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.js --minify --tree-shaking=true",
+    "build:cjs": "esbuild src/index.ts --bundle --format=cjs --outfile=dist/index.cjs --minify --tree-shaking=true",
+    "build:iife": "esbuild src/index.ts --bundle --format=iife --global-name=kolory --outfile=dist/index.iife.js --minify --tree-shaking=true",
+    "build:types": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

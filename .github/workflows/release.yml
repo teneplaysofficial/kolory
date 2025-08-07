@@ -2,9 +2,6 @@ name: Build
 description: This workflow publishes the package to NPM when a new version tag is pushed.
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
 
 permissions:
@@ -18,24 +15,43 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: 'https://registry.npmjs.org/'
-          cache: 'yarn'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Build the package
-        run: yarn build
+        run: pnpm build
 
-      - name: Publish to NPM
+      - name: Setup Git user
         run: |
-          echo "Publishing tag: $GITHUB_REF_NAME"
-          npm publish --access public --provenance
-          echo "Package successfully published to NPM!"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Version bump (changeset version)
+        run: pnpm changeset version
+
+      - name: Push version commit + tags
+        run: git push --follow-tags
+
+      - name: Setup npm auth for publish
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Publish packages to npm
+        run: pnpm changeset publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
