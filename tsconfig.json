@@ -6,12 +6,10 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "moduleResolution": "Node",
-    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
-  },
-  "include": ["*.ts"]
+  }
 }

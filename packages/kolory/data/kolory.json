@@ -1,5 +1,5 @@
 {
-  "$schema": "./kolory.schema.json",
+  "$schema": "../schemas/kolory.schema.json",
   "red": {
     "hex": "#FF0000",
     "rgb": "255,0,0",

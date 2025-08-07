@@ -1,5 +1,5 @@
 {
-  "$schema": "./ansi.schema.json",
+  "$schema": "../schemas/ansi.schema.json",
 
   "reset": "\u001b[0m",
 
