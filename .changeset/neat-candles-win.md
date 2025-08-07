@@ -1,5 +1,0 @@
----
-'ansilory': major
----
-
-Initial release
