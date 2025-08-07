@@ -44,8 +44,11 @@ jobs:
       - name: Version bump (changeset version)
         run: pnpm changeset version
 
-      - name: Push version commit + tags
-        run: git push --follow-tags
+      - name: Commit version bump and push
+        run: |
+          git add .
+          git diff --cached --quiet || git commit -m "chore(release): version bump"
+          git push --follow-tags
 
       - name: Setup npm auth for publish
         run: |
