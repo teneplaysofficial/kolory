@@ -44,17 +44,20 @@ jobs:
       - name: Version bump (changeset version)
         run: pnpm changeset version
 
-      - name: Commit version bump and push
+      - name: Commit version bump
         run: |
           git add .
           git diff --cached --quiet || git commit -m "chore(release): version bump"
-          git push --follow-tags
 
       - name: Setup npm auth for publish
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Publish packages to npm
-        run: pnpm changeset publish --provenance
+        run: pnpm changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+
+      - name: Push commits and tags
+        run: git push --follow-tags
