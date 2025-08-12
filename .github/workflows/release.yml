@@ -47,7 +47,7 @@ jobs:
       - name: Publish JSR
         run: |
           node scripts/sync-version.js
-          pnpm publish:jsr
+          pnpm publish:jsr --token ${{ secrets.JSR_TOKEN }}
 
       - name: Commit version bump
         run: |
