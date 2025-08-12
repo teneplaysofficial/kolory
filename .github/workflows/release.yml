@@ -11,6 +11,8 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      JSR_TOKEN: ${{ secrets.JSR_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -45,8 +47,6 @@ jobs:
         run: pnpm changeset version
 
       - name: Publish JSR
-        env:
-          JSR_TOKEN: ${{ secrets.JSR_TOKEN }}
         run: |
           node scripts/sync-version.js
           pnpm publish:jsr
