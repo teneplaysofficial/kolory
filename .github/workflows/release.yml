@@ -44,6 +44,9 @@ jobs:
       - name: Version bump (changeset version)
         run: pnpm changeset version
 
+      - name: Publish JSR
+        run: pnpm publish:jsr
+
       - name: Commit version bump
         run: |
           git add .
