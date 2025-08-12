@@ -12,6 +12,8 @@ const folder = path.join(process.cwd(), 'packages');
     const pkgPath = path.join(filePath, 'package.json');
     const jsrPath = path.join(filePath, 'jsr.json');
 
+    if (!fs.existsSync(jsrPath)) return;
+
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
     const jsr = JSON.parse(fs.readFileSync(jsrPath, 'utf8'));
 
