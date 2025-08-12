@@ -7,6 +7,8 @@ _Terminal styling made beautiful_
 </div>
 
 [![npm](https://img.shields.io/npm/v/ansilory.svg)](https://www.npmjs.com/package/ansilory)
+[![JSR](https://jsr.io/badges/@tene/ansilory)](https://jsr.io/@tene/ansilory)
+[![JSR Score](https://jsr.io/badges/@tene/ansilory/score)](https://jsr.io/@tene/ansilory)
 [![npm downloads](https://img.shields.io/npm/dw/ansilory)](https://www.npmjs.com/package/ansilory)
 
 ## Installation

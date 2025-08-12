@@ -52,6 +52,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "publish": "changeset publish",
+    "publish:jsr": "turbo run publish:jsr",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier  --ignore-path .gitignore --write"

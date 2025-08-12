@@ -5,6 +5,8 @@
 _Paint your projects with vibrant Kolory_
 
 [![npm](https://img.shields.io/npm/v/kolory.svg)](https://www.npmjs.com/package/kolory)
+[![JSR](https://jsr.io/badges/@tene/kolory)](https://jsr.io/@tene/kolory)
+[![JSR Score](https://jsr.io/badges/@tene/kolory/score)](https://jsr.io/@tene/kolory)
 [![npm downloads](https://img.shields.io/npm/dw/kolory)](https://www.npmjs.com/package/kolory)
 [![bundlephobia](https://img.shields.io/bundlephobia/minzip/kolory)](https://github.com/teneplaysofficial/kolory)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/kolory/badge?style=square)](https://github.com/teneplaysofficial/kolory)
