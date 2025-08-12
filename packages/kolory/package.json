@@ -56,7 +56,7 @@
     "build:cjs": "esbuild src/index.ts --bundle --format=cjs --outfile=dist/index.cjs --minify --tree-shaking=true",
     "build:iife": "esbuild src/index.ts --bundle --format=iife --global-name=kolory --outfile=dist/index.iife.js --minify --tree-shaking=true",
     "build:types": "tsc",
-    "publish:jsr": "npx jsr publish --token $JSR_TOKEN"
+    "publish:jsr": "node ../../scripts/publish.js"
   },
   "dependencies": {},
   "devDependencies": {}
